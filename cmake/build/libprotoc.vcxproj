@@ -1,0 +1,455 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="MinSizeRel|x64">
+      <Configuration>MinSizeRel</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|x64">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{28869DE4-F6FA-3E96-A415-7F03987FBE7D}</ProjectGuid>
+    <WindowsTargetPlatformVersion>10.0.18362.0</WindowsTargetPlatformVersion>
+    <Keyword>Win32Proj</Keyword>
+    <Platform>x64</Platform>
+    <ProjectName>libprotoc</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Code\protobuf\cmake\build\Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">libprotoc.dir\Debug\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">libprotocd</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.lib</TargetExt>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Code\protobuf\cmake\build\Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">libprotoc.dir\Release\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">libprotoc</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.lib</TargetExt>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\Code\protobuf\cmake\build\MinSizeRel\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">libprotoc.dir\MinSizeRel\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">libprotoc</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">.lib</TargetExt>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\Code\protobuf\cmake\build\RelWithDebInfo\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">libprotoc.dir\RelWithDebInfo\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">libprotoc</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">.lib</TargetExt>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>D:\Code\protobuf\cmake\build;D:\Code\protobuf\src;D:\Software\Anaconda3\Library\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /bigobj</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4018;4065;4146;4244;4251;4267;4305;4307;4309;4334;4355;4506;4800;4996</DisableSpecificWarnings>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;LIBPROTOC_EXPORTS;GOOGLE_PROTOBUF_CMAKE_BUILD;HAVE_ZLIB;CMAKE_INTDIR="Debug";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;LIBPROTOC_EXPORTS;GOOGLE_PROTOBUF_CMAKE_BUILD;HAVE_ZLIB;CMAKE_INTDIR=\"Debug\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\Code\protobuf\cmake\build;D:\Code\protobuf\src;D:\Software\Anaconda3\Library\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>D:\Code\protobuf\cmake\build;D:\Code\protobuf\src;D:\Software\Anaconda3\Library\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64 /ignore:4221</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>D:\Code\protobuf\cmake\build;D:\Code\protobuf\src;D:\Software\Anaconda3\Library\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /bigobj</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <DisableSpecificWarnings>4018;4065;4146;4244;4251;4267;4305;4307;4309;4334;4355;4506;4800;4996</DisableSpecificWarnings>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;LIBPROTOC_EXPORTS;GOOGLE_PROTOBUF_CMAKE_BUILD;HAVE_ZLIB;CMAKE_INTDIR="Release";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;LIBPROTOC_EXPORTS;GOOGLE_PROTOBUF_CMAKE_BUILD;HAVE_ZLIB;CMAKE_INTDIR=\"Release\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\Code\protobuf\cmake\build;D:\Code\protobuf\src;D:\Software\Anaconda3\Library\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>D:\Code\protobuf\cmake\build;D:\Code\protobuf\src;D:\Software\Anaconda3\Library\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64 /ignore:4221</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>D:\Code\protobuf\cmake\build;D:\Code\protobuf\src;D:\Software\Anaconda3\Library\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /bigobj</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <DisableSpecificWarnings>4018;4065;4146;4244;4251;4267;4305;4307;4309;4334;4355;4506;4800;4996</DisableSpecificWarnings>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <Optimization>MinSpace</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;LIBPROTOC_EXPORTS;GOOGLE_PROTOBUF_CMAKE_BUILD;HAVE_ZLIB;CMAKE_INTDIR="MinSizeRel";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;LIBPROTOC_EXPORTS;GOOGLE_PROTOBUF_CMAKE_BUILD;HAVE_ZLIB;CMAKE_INTDIR=\"MinSizeRel\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\Code\protobuf\cmake\build;D:\Code\protobuf\src;D:\Software\Anaconda3\Library\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>D:\Code\protobuf\cmake\build;D:\Code\protobuf\src;D:\Software\Anaconda3\Library\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64 /ignore:4221</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>D:\Code\protobuf\cmake\build;D:\Code\protobuf\src;D:\Software\Anaconda3\Library\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /bigobj</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4018;4065;4146;4244;4251;4267;4305;4307;4309;4334;4355;4506;4800;4996</DisableSpecificWarnings>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;LIBPROTOC_EXPORTS;GOOGLE_PROTOBUF_CMAKE_BUILD;HAVE_ZLIB;CMAKE_INTDIR="RelWithDebInfo";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;LIBPROTOC_EXPORTS;GOOGLE_PROTOBUF_CMAKE_BUILD;HAVE_ZLIB;CMAKE_INTDIR=\"RelWithDebInfo\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\Code\protobuf\cmake\build;D:\Code\protobuf\src;D:\Software\Anaconda3\Library\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>D:\Code\protobuf\cmake\build;D:\Code\protobuf\src;D:\Software\Anaconda3\Library\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64 /ignore:4221</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="D:\Code\protobuf\cmake\CMakeLists.txt">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule D:/Code/protobuf/cmake/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+D:\Software\CMake\bin\cmake.exe -SD:/Code/protobuf/cmake -BD:/Code/protobuf/cmake/build --check-stamp-file D:/Code/protobuf/cmake/build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Code\protobuf\cmake\build\CMakeFiles\3.17.1\CMakeCCompiler.cmake;D:\Code\protobuf\cmake\build\CMakeFiles\3.17.1\CMakeCXXCompiler.cmake;D:\Code\protobuf\cmake\build\CMakeFiles\3.17.1\CMakeRCCompiler.cmake;D:\Code\protobuf\cmake\build\CMakeFiles\3.17.1\CMakeSystem.cmake;D:\Code\protobuf\cmake\extract_includes.bat.in;D:\Code\protobuf\cmake\install.cmake;D:\Code\protobuf\cmake\libprotobuf-lite.cmake;D:\Code\protobuf\cmake\libprotobuf.cmake;D:\Code\protobuf\cmake\libprotoc.cmake;D:\Code\protobuf\cmake\protobuf-config-version.cmake.in;D:\Code\protobuf\cmake\protobuf-config.cmake.in;D:\Code\protobuf\cmake\protobuf-lite.pc.cmake;D:\Code\protobuf\cmake\protobuf-module.cmake.in;D:\Code\protobuf\cmake\protobuf-options.cmake;D:\Code\protobuf\cmake\protobuf.pc.cmake;D:\Code\protobuf\cmake\protoc.cmake;D:\Code\protobuf\cmake\version.rc.in;D:\Software\CMake\share\cmake-3.17\Modules\CMakeCInformation.cmake;D:\Software\CMake\share\cmake-3.17\Modules\CMakeCXXInformation.cmake;D:\Software\CMake\share\cmake-3.17\Modules\CMakeCommonLanguageInclude.cmake;D:\Software\CMake\share\cmake-3.17\Modules\CMakeDependentOption.cmake;D:\Software\CMake\share\cmake-3.17\Modules\CMakeGenericSystem.cmake;D:\Software\CMake\share\cmake-3.17\Modules\CMakeInitializeConfigs.cmake;D:\Software\CMake\share\cmake-3.17\Modules\CMakeLanguageInformation.cmake;D:\Software\CMake\share\cmake-3.17\Modules\CMakeRCInformation.cmake;D:\Software\CMake\share\cmake-3.17\Modules\CMakeSystemSpecificInformation.cmake;D:\Software\CMake\share\cmake-3.17\Modules\CMakeSystemSpecificInitialize.cmake;D:\Software\CMake\share\cmake-3.17\Modules\CheckCSourceCompiles.cmake;D:\Software\CMake\share\cmake-3.17\Modules\CheckIncludeFile.cmake;D:\Software\CMake\share\cmake-3.17\Modules\CheckLibraryExists.cmake;D:\Software\CMake\share\cmake-3.17\Modules\Compiler\CMakeCommonCompilerMacros.cmake;D:\Software\CMake\share\cmake-3.17\Modules\Compiler\MSVC-C.cmake;D:\Software\CMake\share\cmake-3.17\Modules\Compiler\MSVC-CXX.cmake;D:\Software\CMake\share\cmake-3.17\Modules\FindPackageHandleStandardArgs.cmake;D:\Software\CMake\share\cmake-3.17\Modules\FindPackageMessage.cmake;D:\Software\CMake\share\cmake-3.17\Modules\FindThreads.cmake;D:\Software\CMake\share\cmake-3.17\Modules\FindZLIB.cmake;D:\Software\CMake\share\cmake-3.17\Modules\GNUInstallDirs.cmake;D:\Software\CMake\share\cmake-3.17\Modules\Platform\Windows-MSVC-C.cmake;D:\Software\CMake\share\cmake-3.17\Modules\Platform\Windows-MSVC-CXX.cmake;D:\Software\CMake\share\cmake-3.17\Modules\Platform\Windows-MSVC.cmake;D:\Software\CMake\share\cmake-3.17\Modules\Platform\Windows.cmake;D:\Software\CMake\share\cmake-3.17\Modules\Platform\WindowsPaths.cmake;D:\Software\CMake\share\cmake-3.17\Modules\SelectLibraryConfigurations.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Code\protobuf\cmake\build\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule D:/Code/protobuf/cmake/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+D:\Software\CMake\bin\cmake.exe -SD:/Code/protobuf/cmake -BD:/Code/protobuf/cmake/build --check-stamp-file D:/Code/protobuf/cmake/build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Code\protobuf\cmake\build\CMakeFiles\3.17.1\CMakeCCompiler.cmake;D:\Code\protobuf\cmake\build\CMakeFiles\3.17.1\CMakeCXXCompiler.cmake;D:\Code\protobuf\cmake\build\CMakeFiles\3.17.1\CMakeRCCompiler.cmake;D:\Code\protobuf\cmake\build\CMakeFiles\3.17.1\CMakeSystem.cmake;D:\Code\protobuf\cmake\extract_includes.bat.in;D:\Code\protobuf\cmake\install.cmake;D:\Code\protobuf\cmake\libprotobuf-lite.cmake;D:\Code\protobuf\cmake\libprotobuf.cmake;D:\Code\protobuf\cmake\libprotoc.cmake;D:\Code\protobuf\cmake\protobuf-config-version.cmake.in;D:\Code\protobuf\cmake\protobuf-config.cmake.in;D:\Code\protobuf\cmake\protobuf-lite.pc.cmake;D:\Code\protobuf\cmake\protobuf-module.cmake.in;D:\Code\protobuf\cmake\protobuf-options.cmake;D:\Code\protobuf\cmake\protobuf.pc.cmake;D:\Code\protobuf\cmake\protoc.cmake;D:\Code\protobuf\cmake\version.rc.in;D:\Software\CMake\share\cmake-3.17\Modules\CMakeCInformation.cmake;D:\Software\CMake\share\cmake-3.17\Modules\CMakeCXXInformation.cmake;D:\Software\CMake\share\cmake-3.17\Modules\CMakeCommonLanguageInclude.cmake;D:\Software\CMake\share\cmake-3.17\Modules\CMakeDependentOption.cmake;D:\Software\CMake\share\cmake-3.17\Modules\CMakeGenericSystem.cmake;D:\Software\CMake\share\cmake-3.17\Modules\CMakeInitializeConfigs.cmake;D:\Software\CMake\share\cmake-3.17\Modules\CMakeLanguageInformation.cmake;D:\Software\CMake\share\cmake-3.17\Modules\CMakeRCInformation.cmake;D:\Software\CMake\share\cmake-3.17\Modules\CMakeSystemSpecificInformation.cmake;D:\Software\CMake\share\cmake-3.17\Modules\CMakeSystemSpecificInitialize.cmake;D:\Software\CMake\share\cmake-3.17\Modules\CheckCSourceCompiles.cmake;D:\Software\CMake\share\cmake-3.17\Modules\CheckIncludeFile.cmake;D:\Software\CMake\share\cmake-3.17\Modules\CheckLibraryExists.cmake;D:\Software\CMake\share\cmake-3.17\Modules\Compiler\CMakeCommonCompilerMacros.cmake;D:\Software\CMake\share\cmake-3.17\Modules\Compiler\MSVC-C.cmake;D:\Software\CMake\share\cmake-3.17\Modules\Compiler\MSVC-CXX.cmake;D:\Software\CMake\share\cmake-3.17\Modules\FindPackageHandleStandardArgs.cmake;D:\Software\CMake\share\cmake-3.17\Modules\FindPackageMessage.cmake;D:\Software\CMake\share\cmake-3.17\Modules\FindThreads.cmake;D:\Software\CMake\share\cmake-3.17\Modules\FindZLIB.cmake;D:\Software\CMake\share\cmake-3.17\Modules\GNUInstallDirs.cmake;D:\Software\CMake\share\cmake-3.17\Modules\Platform\Windows-MSVC-C.cmake;D:\Software\CMake\share\cmake-3.17\Modules\Platform\Windows-MSVC-CXX.cmake;D:\Software\CMake\share\cmake-3.17\Modules\Platform\Windows-MSVC.cmake;D:\Software\CMake\share\cmake-3.17\Modules\Platform\Windows.cmake;D:\Software\CMake\share\cmake-3.17\Modules\Platform\WindowsPaths.cmake;D:\Software\CMake\share\cmake-3.17\Modules\SelectLibraryConfigurations.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Code\protobuf\cmake\build\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule D:/Code/protobuf/cmake/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+D:\Software\CMake\bin\cmake.exe -SD:/Code/protobuf/cmake -BD:/Code/protobuf/cmake/build --check-stamp-file D:/Code/protobuf/cmake/build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\Code\protobuf\cmake\build\CMakeFiles\3.17.1\CMakeCCompiler.cmake;D:\Code\protobuf\cmake\build\CMakeFiles\3.17.1\CMakeCXXCompiler.cmake;D:\Code\protobuf\cmake\build\CMakeFiles\3.17.1\CMakeRCCompiler.cmake;D:\Code\protobuf\cmake\build\CMakeFiles\3.17.1\CMakeSystem.cmake;D:\Code\protobuf\cmake\extract_includes.bat.in;D:\Code\protobuf\cmake\install.cmake;D:\Code\protobuf\cmake\libprotobuf-lite.cmake;D:\Code\protobuf\cmake\libprotobuf.cmake;D:\Code\protobuf\cmake\libprotoc.cmake;D:\Code\protobuf\cmake\protobuf-config-version.cmake.in;D:\Code\protobuf\cmake\protobuf-config.cmake.in;D:\Code\protobuf\cmake\protobuf-lite.pc.cmake;D:\Code\protobuf\cmake\protobuf-module.cmake.in;D:\Code\protobuf\cmake\protobuf-options.cmake;D:\Code\protobuf\cmake\protobuf.pc.cmake;D:\Code\protobuf\cmake\protoc.cmake;D:\Code\protobuf\cmake\version.rc.in;D:\Software\CMake\share\cmake-3.17\Modules\CMakeCInformation.cmake;D:\Software\CMake\share\cmake-3.17\Modules\CMakeCXXInformation.cmake;D:\Software\CMake\share\cmake-3.17\Modules\CMakeCommonLanguageInclude.cmake;D:\Software\CMake\share\cmake-3.17\Modules\CMakeDependentOption.cmake;D:\Software\CMake\share\cmake-3.17\Modules\CMakeGenericSystem.cmake;D:\Software\CMake\share\cmake-3.17\Modules\CMakeInitializeConfigs.cmake;D:\Software\CMake\share\cmake-3.17\Modules\CMakeLanguageInformation.cmake;D:\Software\CMake\share\cmake-3.17\Modules\CMakeRCInformation.cmake;D:\Software\CMake\share\cmake-3.17\Modules\CMakeSystemSpecificInformation.cmake;D:\Software\CMake\share\cmake-3.17\Modules\CMakeSystemSpecificInitialize.cmake;D:\Software\CMake\share\cmake-3.17\Modules\CheckCSourceCompiles.cmake;D:\Software\CMake\share\cmake-3.17\Modules\CheckIncludeFile.cmake;D:\Software\CMake\share\cmake-3.17\Modules\CheckLibraryExists.cmake;D:\Software\CMake\share\cmake-3.17\Modules\Compiler\CMakeCommonCompilerMacros.cmake;D:\Software\CMake\share\cmake-3.17\Modules\Compiler\MSVC-C.cmake;D:\Software\CMake\share\cmake-3.17\Modules\Compiler\MSVC-CXX.cmake;D:\Software\CMake\share\cmake-3.17\Modules\FindPackageHandleStandardArgs.cmake;D:\Software\CMake\share\cmake-3.17\Modules\FindPackageMessage.cmake;D:\Software\CMake\share\cmake-3.17\Modules\FindThreads.cmake;D:\Software\CMake\share\cmake-3.17\Modules\FindZLIB.cmake;D:\Software\CMake\share\cmake-3.17\Modules\GNUInstallDirs.cmake;D:\Software\CMake\share\cmake-3.17\Modules\Platform\Windows-MSVC-C.cmake;D:\Software\CMake\share\cmake-3.17\Modules\Platform\Windows-MSVC-CXX.cmake;D:\Software\CMake\share\cmake-3.17\Modules\Platform\Windows-MSVC.cmake;D:\Software\CMake\share\cmake-3.17\Modules\Platform\Windows.cmake;D:\Software\CMake\share\cmake-3.17\Modules\Platform\WindowsPaths.cmake;D:\Software\CMake\share\cmake-3.17\Modules\SelectLibraryConfigurations.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\Code\protobuf\cmake\build\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule D:/Code/protobuf/cmake/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+D:\Software\CMake\bin\cmake.exe -SD:/Code/protobuf/cmake -BD:/Code/protobuf/cmake/build --check-stamp-file D:/Code/protobuf/cmake/build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\Code\protobuf\cmake\build\CMakeFiles\3.17.1\CMakeCCompiler.cmake;D:\Code\protobuf\cmake\build\CMakeFiles\3.17.1\CMakeCXXCompiler.cmake;D:\Code\protobuf\cmake\build\CMakeFiles\3.17.1\CMakeRCCompiler.cmake;D:\Code\protobuf\cmake\build\CMakeFiles\3.17.1\CMakeSystem.cmake;D:\Code\protobuf\cmake\extract_includes.bat.in;D:\Code\protobuf\cmake\install.cmake;D:\Code\protobuf\cmake\libprotobuf-lite.cmake;D:\Code\protobuf\cmake\libprotobuf.cmake;D:\Code\protobuf\cmake\libprotoc.cmake;D:\Code\protobuf\cmake\protobuf-config-version.cmake.in;D:\Code\protobuf\cmake\protobuf-config.cmake.in;D:\Code\protobuf\cmake\protobuf-lite.pc.cmake;D:\Code\protobuf\cmake\protobuf-module.cmake.in;D:\Code\protobuf\cmake\protobuf-options.cmake;D:\Code\protobuf\cmake\protobuf.pc.cmake;D:\Code\protobuf\cmake\protoc.cmake;D:\Code\protobuf\cmake\version.rc.in;D:\Software\CMake\share\cmake-3.17\Modules\CMakeCInformation.cmake;D:\Software\CMake\share\cmake-3.17\Modules\CMakeCXXInformation.cmake;D:\Software\CMake\share\cmake-3.17\Modules\CMakeCommonLanguageInclude.cmake;D:\Software\CMake\share\cmake-3.17\Modules\CMakeDependentOption.cmake;D:\Software\CMake\share\cmake-3.17\Modules\CMakeGenericSystem.cmake;D:\Software\CMake\share\cmake-3.17\Modules\CMakeInitializeConfigs.cmake;D:\Software\CMake\share\cmake-3.17\Modules\CMakeLanguageInformation.cmake;D:\Software\CMake\share\cmake-3.17\Modules\CMakeRCInformation.cmake;D:\Software\CMake\share\cmake-3.17\Modules\CMakeSystemSpecificInformation.cmake;D:\Software\CMake\share\cmake-3.17\Modules\CMakeSystemSpecificInitialize.cmake;D:\Software\CMake\share\cmake-3.17\Modules\CheckCSourceCompiles.cmake;D:\Software\CMake\share\cmake-3.17\Modules\CheckIncludeFile.cmake;D:\Software\CMake\share\cmake-3.17\Modules\CheckLibraryExists.cmake;D:\Software\CMake\share\cmake-3.17\Modules\Compiler\CMakeCommonCompilerMacros.cmake;D:\Software\CMake\share\cmake-3.17\Modules\Compiler\MSVC-C.cmake;D:\Software\CMake\share\cmake-3.17\Modules\Compiler\MSVC-CXX.cmake;D:\Software\CMake\share\cmake-3.17\Modules\FindPackageHandleStandardArgs.cmake;D:\Software\CMake\share\cmake-3.17\Modules\FindPackageMessage.cmake;D:\Software\CMake\share\cmake-3.17\Modules\FindThreads.cmake;D:\Software\CMake\share\cmake-3.17\Modules\FindZLIB.cmake;D:\Software\CMake\share\cmake-3.17\Modules\GNUInstallDirs.cmake;D:\Software\CMake\share\cmake-3.17\Modules\Platform\Windows-MSVC-C.cmake;D:\Software\CMake\share\cmake-3.17\Modules\Platform\Windows-MSVC-CXX.cmake;D:\Software\CMake\share\cmake-3.17\Modules\Platform\Windows-MSVC.cmake;D:\Software\CMake\share\cmake-3.17\Modules\Platform\Windows.cmake;D:\Software\CMake\share\cmake-3.17\Modules\Platform\WindowsPaths.cmake;D:\Software\CMake\share\cmake-3.17\Modules\SelectLibraryConfigurations.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\Code\protobuf\cmake\build\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="D:\Code\protobuf\src\google\protobuf\compiler\code_generator.cc" />
+    <ClCompile Include="D:\Code\protobuf\src\google\protobuf\compiler\command_line_interface.cc" />
+    <ClCompile Include="D:\Code\protobuf\src\google\protobuf\compiler\cpp\cpp_enum.cc" />
+    <ClCompile Include="D:\Code\protobuf\src\google\protobuf\compiler\cpp\cpp_enum_field.cc" />
+    <ClCompile Include="D:\Code\protobuf\src\google\protobuf\compiler\cpp\cpp_extension.cc" />
+    <ClCompile Include="D:\Code\protobuf\src\google\protobuf\compiler\cpp\cpp_field.cc" />
+    <ClCompile Include="D:\Code\protobuf\src\google\protobuf\compiler\cpp\cpp_file.cc" />
+    <ClCompile Include="D:\Code\protobuf\src\google\protobuf\compiler\cpp\cpp_generator.cc" />
+    <ClCompile Include="D:\Code\protobuf\src\google\protobuf\compiler\cpp\cpp_helpers.cc" />
+    <ClCompile Include="D:\Code\protobuf\src\google\protobuf\compiler\cpp\cpp_map_field.cc" />
+    <ClCompile Include="D:\Code\protobuf\src\google\protobuf\compiler\cpp\cpp_message.cc" />
+    <ClCompile Include="D:\Code\protobuf\src\google\protobuf\compiler\cpp\cpp_message_field.cc" />
+    <ClCompile Include="D:\Code\protobuf\src\google\protobuf\compiler\cpp\cpp_padding_optimizer.cc" />
+    <ClCompile Include="D:\Code\protobuf\src\google\protobuf\compiler\cpp\cpp_primitive_field.cc" />
+    <ClCompile Include="D:\Code\protobuf\src\google\protobuf\compiler\cpp\cpp_service.cc" />
+    <ClCompile Include="D:\Code\protobuf\src\google\protobuf\compiler\cpp\cpp_string_field.cc" />
+    <ClCompile Include="D:\Code\protobuf\src\google\protobuf\compiler\csharp\csharp_doc_comment.cc" />
+    <ClCompile Include="D:\Code\protobuf\src\google\protobuf\compiler\csharp\csharp_enum.cc" />
+    <ClCompile Include="D:\Code\protobuf\src\google\protobuf\compiler\csharp\csharp_enum_field.cc" />
+    <ClCompile Include="D:\Code\protobuf\src\google\protobuf\compiler\csharp\csharp_field_base.cc" />
+    <ClCompile Include="D:\Code\protobuf\src\google\protobuf\compiler\csharp\csharp_generator.cc" />
+    <ClCompile Include="D:\Code\protobuf\src\google\protobuf\compiler\csharp\csharp_helpers.cc" />
+    <ClCompile Include="D:\Code\protobuf\src\google\protobuf\compiler\csharp\csharp_map_field.cc" />
+    <ClCompile Include="D:\Code\protobuf\src\google\protobuf\compiler\csharp\csharp_message.cc" />
+    <ClCompile Include="D:\Code\protobuf\src\google\protobuf\compiler\csharp\csharp_message_field.cc" />
+    <ClCompile Include="D:\Code\protobuf\src\google\protobuf\compiler\csharp\csharp_primitive_field.cc" />
+    <ClCompile Include="D:\Code\protobuf\src\google\protobuf\compiler\csharp\csharp_reflection_class.cc" />
+    <ClCompile Include="D:\Code\protobuf\src\google\protobuf\compiler\csharp\csharp_repeated_enum_field.cc" />
+    <ClCompile Include="D:\Code\protobuf\src\google\protobuf\compiler\csharp\csharp_repeated_message_field.cc" />
+    <ClCompile Include="D:\Code\protobuf\src\google\protobuf\compiler\csharp\csharp_repeated_primitive_field.cc" />
+    <ClCompile Include="D:\Code\protobuf\src\google\protobuf\compiler\csharp\csharp_source_generator_base.cc" />
+    <ClCompile Include="D:\Code\protobuf\src\google\protobuf\compiler\csharp\csharp_wrapper_field.cc" />
+    <ClCompile Include="D:\Code\protobuf\src\google\protobuf\compiler\java\java_context.cc" />
+    <ClCompile Include="D:\Code\protobuf\src\google\protobuf\compiler\java\java_doc_comment.cc" />
+    <ClCompile Include="D:\Code\protobuf\src\google\protobuf\compiler\java\java_enum.cc" />
+    <ClCompile Include="D:\Code\protobuf\src\google\protobuf\compiler\java\java_enum_field.cc" />
+    <ClCompile Include="D:\Code\protobuf\src\google\protobuf\compiler\java\java_enum_field_lite.cc" />
+    <ClCompile Include="D:\Code\protobuf\src\google\protobuf\compiler\java\java_enum_lite.cc" />
+    <ClCompile Include="D:\Code\protobuf\src\google\protobuf\compiler\java\java_extension.cc" />
+    <ClCompile Include="D:\Code\protobuf\src\google\protobuf\compiler\java\java_extension_lite.cc" />
+    <ClCompile Include="D:\Code\protobuf\src\google\protobuf\compiler\java\java_field.cc" />
+    <ClCompile Include="D:\Code\protobuf\src\google\protobuf\compiler\java\java_file.cc" />
+    <ClCompile Include="D:\Code\protobuf\src\google\protobuf\compiler\java\java_generator.cc" />
+    <ClCompile Include="D:\Code\protobuf\src\google\protobuf\compiler\java\java_generator_factory.cc" />
+    <ClCompile Include="D:\Code\protobuf\src\google\protobuf\compiler\java\java_helpers.cc" />
+    <ClCompile Include="D:\Code\protobuf\src\google\protobuf\compiler\java\java_map_field.cc" />
+    <ClCompile Include="D:\Code\protobuf\src\google\protobuf\compiler\java\java_map_field_lite.cc" />
+    <ClCompile Include="D:\Code\protobuf\src\google\protobuf\compiler\java\java_message.cc" />
+    <ClCompile Include="D:\Code\protobuf\src\google\protobuf\compiler\java\java_message_builder.cc" />
+    <ClCompile Include="D:\Code\protobuf\src\google\protobuf\compiler\java\java_message_builder_lite.cc" />
+    <ClCompile Include="D:\Code\protobuf\src\google\protobuf\compiler\java\java_message_field.cc" />
+    <ClCompile Include="D:\Code\protobuf\src\google\protobuf\compiler\java\java_message_field_lite.cc" />
+    <ClCompile Include="D:\Code\protobuf\src\google\protobuf\compiler\java\java_message_lite.cc" />
+    <ClCompile Include="D:\Code\protobuf\src\google\protobuf\compiler\java\java_name_resolver.cc" />
+    <ClCompile Include="D:\Code\protobuf\src\google\protobuf\compiler\java\java_primitive_field.cc" />
+    <ClCompile Include="D:\Code\protobuf\src\google\protobuf\compiler\java\java_primitive_field_lite.cc" />
+    <ClCompile Include="D:\Code\protobuf\src\google\protobuf\compiler\java\java_service.cc" />
+    <ClCompile Include="D:\Code\protobuf\src\google\protobuf\compiler\java\java_shared_code_generator.cc" />
+    <ClCompile Include="D:\Code\protobuf\src\google\protobuf\compiler\java\java_string_field.cc" />
+    <ClCompile Include="D:\Code\protobuf\src\google\protobuf\compiler\java\java_string_field_lite.cc" />
+    <ClCompile Include="D:\Code\protobuf\src\google\protobuf\compiler\js\js_generator.cc" />
+    <ClCompile Include="D:\Code\protobuf\src\google\protobuf\compiler\js\well_known_types_embed.cc" />
+    <ClCompile Include="D:\Code\protobuf\src\google\protobuf\compiler\objectivec\objectivec_enum.cc" />
+    <ClCompile Include="D:\Code\protobuf\src\google\protobuf\compiler\objectivec\objectivec_enum_field.cc" />
+    <ClCompile Include="D:\Code\protobuf\src\google\protobuf\compiler\objectivec\objectivec_extension.cc" />
+    <ClCompile Include="D:\Code\protobuf\src\google\protobuf\compiler\objectivec\objectivec_field.cc" />
+    <ClCompile Include="D:\Code\protobuf\src\google\protobuf\compiler\objectivec\objectivec_file.cc" />
+    <ClCompile Include="D:\Code\protobuf\src\google\protobuf\compiler\objectivec\objectivec_generator.cc" />
+    <ClCompile Include="D:\Code\protobuf\src\google\protobuf\compiler\objectivec\objectivec_helpers.cc" />
+    <ClCompile Include="D:\Code\protobuf\src\google\protobuf\compiler\objectivec\objectivec_map_field.cc" />
+    <ClCompile Include="D:\Code\protobuf\src\google\protobuf\compiler\objectivec\objectivec_message.cc" />
+    <ClCompile Include="D:\Code\protobuf\src\google\protobuf\compiler\objectivec\objectivec_message_field.cc" />
+    <ClCompile Include="D:\Code\protobuf\src\google\protobuf\compiler\objectivec\objectivec_oneof.cc" />
+    <ClCompile Include="D:\Code\protobuf\src\google\protobuf\compiler\objectivec\objectivec_primitive_field.cc" />
+    <ClCompile Include="D:\Code\protobuf\src\google\protobuf\compiler\php\php_generator.cc" />
+    <ClCompile Include="D:\Code\protobuf\src\google\protobuf\compiler\plugin.cc" />
+    <ClCompile Include="D:\Code\protobuf\src\google\protobuf\compiler\plugin.pb.cc" />
+    <ClCompile Include="D:\Code\protobuf\src\google\protobuf\compiler\python\python_generator.cc" />
+    <ClCompile Include="D:\Code\protobuf\src\google\protobuf\compiler\ruby\ruby_generator.cc" />
+    <ClCompile Include="D:\Code\protobuf\src\google\protobuf\compiler\subprocess.cc" />
+    <ClCompile Include="D:\Code\protobuf\src\google\protobuf\compiler\zip_writer.cc" />
+    <ClInclude Include="D:\Code\protobuf\src\google\protobuf\compiler\cpp\cpp_enum.h" />
+    <ClInclude Include="D:\Code\protobuf\src\google\protobuf\compiler\cpp\cpp_enum_field.h" />
+    <ClInclude Include="D:\Code\protobuf\src\google\protobuf\compiler\cpp\cpp_extension.h" />
+    <ClInclude Include="D:\Code\protobuf\src\google\protobuf\compiler\cpp\cpp_field.h" />
+    <ClInclude Include="D:\Code\protobuf\src\google\protobuf\compiler\cpp\cpp_file.h" />
+    <ClInclude Include="D:\Code\protobuf\src\google\protobuf\compiler\cpp\cpp_helpers.h" />
+    <ClInclude Include="D:\Code\protobuf\src\google\protobuf\compiler\cpp\cpp_map_field.h" />
+    <ClInclude Include="D:\Code\protobuf\src\google\protobuf\compiler\cpp\cpp_message.h" />
+    <ClInclude Include="D:\Code\protobuf\src\google\protobuf\compiler\cpp\cpp_message_field.h" />
+    <ClInclude Include="D:\Code\protobuf\src\google\protobuf\compiler\cpp\cpp_message_layout_helper.h" />
+    <ClInclude Include="D:\Code\protobuf\src\google\protobuf\compiler\cpp\cpp_options.h" />
+    <ClInclude Include="D:\Code\protobuf\src\google\protobuf\compiler\cpp\cpp_padding_optimizer.h" />
+    <ClInclude Include="D:\Code\protobuf\src\google\protobuf\compiler\cpp\cpp_primitive_field.h" />
+    <ClInclude Include="D:\Code\protobuf\src\google\protobuf\compiler\cpp\cpp_service.h" />
+    <ClInclude Include="D:\Code\protobuf\src\google\protobuf\compiler\cpp\cpp_string_field.h" />
+    <ClInclude Include="D:\Code\protobuf\src\google\protobuf\compiler\csharp\csharp_doc_comment.h" />
+    <ClInclude Include="D:\Code\protobuf\src\google\protobuf\compiler\csharp\csharp_enum.h" />
+    <ClInclude Include="D:\Code\protobuf\src\google\protobuf\compiler\csharp\csharp_enum_field.h" />
+    <ClInclude Include="D:\Code\protobuf\src\google\protobuf\compiler\csharp\csharp_field_base.h" />
+    <ClInclude Include="D:\Code\protobuf\src\google\protobuf\compiler\csharp\csharp_helpers.h" />
+    <ClInclude Include="D:\Code\protobuf\src\google\protobuf\compiler\csharp\csharp_map_field.h" />
+    <ClInclude Include="D:\Code\protobuf\src\google\protobuf\compiler\csharp\csharp_message.h" />
+    <ClInclude Include="D:\Code\protobuf\src\google\protobuf\compiler\csharp\csharp_message_field.h" />
+    <ClInclude Include="D:\Code\protobuf\src\google\protobuf\compiler\csharp\csharp_options.h" />
+    <ClInclude Include="D:\Code\protobuf\src\google\protobuf\compiler\csharp\csharp_primitive_field.h" />
+    <ClInclude Include="D:\Code\protobuf\src\google\protobuf\compiler\csharp\csharp_reflection_class.h" />
+    <ClInclude Include="D:\Code\protobuf\src\google\protobuf\compiler\csharp\csharp_repeated_enum_field.h" />
+    <ClInclude Include="D:\Code\protobuf\src\google\protobuf\compiler\csharp\csharp_repeated_message_field.h" />
+    <ClInclude Include="D:\Code\protobuf\src\google\protobuf\compiler\csharp\csharp_repeated_primitive_field.h" />
+    <ClInclude Include="D:\Code\protobuf\src\google\protobuf\compiler\csharp\csharp_source_generator_base.h" />
+    <ClInclude Include="D:\Code\protobuf\src\google\protobuf\compiler\csharp\csharp_wrapper_field.h" />
+    <ClInclude Include="D:\Code\protobuf\src\google\protobuf\compiler\java\java_context.h" />
+    <ClInclude Include="D:\Code\protobuf\src\google\protobuf\compiler\java\java_doc_comment.h" />
+    <ClInclude Include="D:\Code\protobuf\src\google\protobuf\compiler\java\java_enum.h" />
+    <ClInclude Include="D:\Code\protobuf\src\google\protobuf\compiler\java\java_enum_field.h" />
+    <ClInclude Include="D:\Code\protobuf\src\google\protobuf\compiler\java\java_enum_field_lite.h" />
+    <ClInclude Include="D:\Code\protobuf\src\google\protobuf\compiler\java\java_enum_lite.h" />
+    <ClInclude Include="D:\Code\protobuf\src\google\protobuf\compiler\java\java_extension.h" />
+    <ClInclude Include="D:\Code\protobuf\src\google\protobuf\compiler\java\java_extension_lite.h" />
+    <ClInclude Include="D:\Code\protobuf\src\google\protobuf\compiler\java\java_field.h" />
+    <ClInclude Include="D:\Code\protobuf\src\google\protobuf\compiler\java\java_file.h" />
+    <ClInclude Include="D:\Code\protobuf\src\google\protobuf\compiler\java\java_generator_factory.h" />
+    <ClInclude Include="D:\Code\protobuf\src\google\protobuf\compiler\java\java_helpers.h" />
+    <ClInclude Include="D:\Code\protobuf\src\google\protobuf\compiler\java\java_map_field.h" />
+    <ClInclude Include="D:\Code\protobuf\src\google\protobuf\compiler\java\java_map_field_lite.h" />
+    <ClInclude Include="D:\Code\protobuf\src\google\protobuf\compiler\java\java_message.h" />
+    <ClInclude Include="D:\Code\protobuf\src\google\protobuf\compiler\java\java_message_builder.h" />
+    <ClInclude Include="D:\Code\protobuf\src\google\protobuf\compiler\java\java_message_builder_lite.h" />
+    <ClInclude Include="D:\Code\protobuf\src\google\protobuf\compiler\java\java_message_field.h" />
+    <ClInclude Include="D:\Code\protobuf\src\google\protobuf\compiler\java\java_message_field_lite.h" />
+    <ClInclude Include="D:\Code\protobuf\src\google\protobuf\compiler\java\java_message_lite.h" />
+    <ClInclude Include="D:\Code\protobuf\src\google\protobuf\compiler\java\java_name_resolver.h" />
+    <ClInclude Include="D:\Code\protobuf\src\google\protobuf\compiler\java\java_options.h" />
+    <ClInclude Include="D:\Code\protobuf\src\google\protobuf\compiler\java\java_primitive_field.h" />
+    <ClInclude Include="D:\Code\protobuf\src\google\protobuf\compiler\java\java_primitive_field_lite.h" />
+    <ClInclude Include="D:\Code\protobuf\src\google\protobuf\compiler\java\java_service.h" />
+    <ClInclude Include="D:\Code\protobuf\src\google\protobuf\compiler\java\java_shared_code_generator.h" />
+    <ClInclude Include="D:\Code\protobuf\src\google\protobuf\compiler\java\java_string_field.h" />
+    <ClInclude Include="D:\Code\protobuf\src\google\protobuf\compiler\java\java_string_field_lite.h" />
+    <ClInclude Include="D:\Code\protobuf\src\google\protobuf\compiler\objectivec\objectivec_enum.h" />
+    <ClInclude Include="D:\Code\protobuf\src\google\protobuf\compiler\objectivec\objectivec_enum_field.h" />
+    <ClInclude Include="D:\Code\protobuf\src\google\protobuf\compiler\objectivec\objectivec_extension.h" />
+    <ClInclude Include="D:\Code\protobuf\src\google\protobuf\compiler\objectivec\objectivec_field.h" />
+    <ClInclude Include="D:\Code\protobuf\src\google\protobuf\compiler\objectivec\objectivec_file.h" />
+    <ClInclude Include="D:\Code\protobuf\src\google\protobuf\compiler\objectivec\objectivec_helpers.h" />
+    <ClInclude Include="D:\Code\protobuf\src\google\protobuf\compiler\objectivec\objectivec_map_field.h" />
+    <ClInclude Include="D:\Code\protobuf\src\google\protobuf\compiler\objectivec\objectivec_message.h" />
+    <ClInclude Include="D:\Code\protobuf\src\google\protobuf\compiler\objectivec\objectivec_message_field.h" />
+    <ClInclude Include="D:\Code\protobuf\src\google\protobuf\compiler\objectivec\objectivec_nsobject_methods.h" />
+    <ClInclude Include="D:\Code\protobuf\src\google\protobuf\compiler\objectivec\objectivec_oneof.h" />
+    <ClInclude Include="D:\Code\protobuf\src\google\protobuf\compiler\objectivec\objectivec_primitive_field.h" />
+    <ClInclude Include="D:\Code\protobuf\src\google\protobuf\compiler\scc.h" />
+    <ClInclude Include="D:\Code\protobuf\src\google\protobuf\compiler\subprocess.h" />
+    <ClInclude Include="D:\Code\protobuf\src\google\protobuf\compiler\zip_writer.h" />
+    <ResourceCompile Include="D:\Code\protobuf\cmake\build\version.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="D:\Code\protobuf\cmake\build\ZERO_CHECK.vcxproj">
+      <Project>{C8DA1F17-6A08-399D-9C33-97D04A754AE6}</Project>
+      <Name>ZERO_CHECK</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="D:\Code\protobuf\cmake\build\libprotobuf.vcxproj">
+      <Project>{677AF0D4-ABDD-3165-83CD-60803CDEF694}</Project>
+      <Name>libprotobuf</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

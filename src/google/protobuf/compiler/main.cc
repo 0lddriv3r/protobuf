@@ -49,7 +49,7 @@ namespace compiler {
 int ProtobufMain(int argc, char* argv[]) {
 
   CommandLineInterface cli;
-  cli.AllowPlugins("protoc-");
+  /*cli.AllowPlugins("protoc-");
 
   // Proto2 C++
   cpp::CppGenerator cpp_generator;
@@ -95,8 +95,23 @@ int ProtobufMain(int argc, char* argv[]) {
   // JavaScript
   js::Generator js_generator;
   cli.RegisterGenerator("--js_out", "--js_opt", &js_generator,
-                        "Generate JavaScript source.");
+                        "Generate JavaScript source.");*/
 
+  if (!cli.RunForOnlyParse(2, "protoc.exe ./Debug/*.proto"))
+  {
+      std::unordered_set<std::string> message_name_list;
+      cli.get_all_message_name(message_name_list);
+      if (cli.had_message_in_proto("Person"))
+      {
+          CommandLineInterface::MessageInfo Person;
+          cli.find_message_by_name("Person", Person);
+      }
+	  if (cli.had_message_in_proto("AddressBook"))
+	  {
+		  CommandLineInterface::MessageInfo AddressBook;
+		  cli.find_message_by_name("AddressBook", AddressBook);
+	  }
+  }
   return cli.Run(argc, argv);
 }
 

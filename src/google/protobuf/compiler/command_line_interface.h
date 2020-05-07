@@ -191,6 +191,8 @@ class PROTOC_EXPORT CommandLineInterface {
   // it calls strerror().  I'm not sure why you'd want to do this anyway.
   int Run(int argc, const char* const argv[]);
 
+  int RunForOnlyParse(int argc, std::string argv);
+
   // DEPRECATED. Calling this method has no effect. Protocol compiler now
   // always try to find the .proto file relative to the current directory
   // first and if the file is not found, it will then treat the input path
@@ -247,6 +249,8 @@ class PROTOC_EXPORT CommandLineInterface {
 
   // Parse all command-line arguments.
   ParseArgumentStatus ParseArguments(int argc, const char* const argv[]);
+
+  ParseArgumentStatus ParseArgumentsForOnlyParse(int argc, std::string argv);
 
   // Read an argument file and append the file's content to the list of
   // arguments. Return false if the file cannot be read.
@@ -450,6 +454,41 @@ class PROTOC_EXPORT CommandLineInterface {
 
   // Was the --experimental_allow_proto3_optional flag used?
   bool allow_proto3_optional_ = false;
+
+  public: struct FieldInfo
+  {
+  public:
+      FieldInfo() : is_message(false), field_label(""), field_type(""), field_name(""), field_comment("") {}
+      
+      std::size_t operator()(const FieldInfo fieldInfo) const {
+          return (std::hash<std::string>()(fieldInfo.field_label) +
+                  std::hash<std::string>()(fieldInfo.field_type) +
+                  std::hash<std::string>()(fieldInfo.field_name) +
+                  std::hash<std::string>()(fieldInfo.field_comment));
+      }
+
+      std::size_t operator==(const FieldInfo fieldInfo) const {
+          return (this->field_label == fieldInfo.field_label &&
+                  this->field_type == fieldInfo.field_type &&
+                  this->field_name == fieldInfo.field_name &&
+                  this->field_comment == fieldInfo.field_comment);
+      }
+
+      bool        is_message;
+      std::string field_label;
+      std::string field_type;
+      std::string field_name;
+      std::string field_comment;
+  };
+  typedef std::vector<FieldInfo> MessageInfo;
+
+  public:
+  bool had_message_in_proto(std::string message_name);
+  void get_all_message_name(std::unordered_set<std::string> &message_name_set);
+  bool find_message_by_name(std::string message_name, MessageInfo &message_info_list);
+
+  std::unordered_set<std::string> message_name_set_;
+  std::unordered_map<std::string, MessageInfo> message_info_map_;
 
   GOOGLE_DISALLOW_EVIL_CONSTRUCTORS(CommandLineInterface);
 };

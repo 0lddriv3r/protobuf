@@ -1041,6 +1041,220 @@ int CommandLineInterface::Run(int argc, const char* const argv[]) {
   return 0;
 }
 
+int CommandLineInterface::RunForOnlyParse(int argc, std::string argv) {
+    Clear();
+    switch (ParseArgumentsForOnlyParse(argc, argv)) {
+    case PARSE_ARGUMENT_DONE_AND_EXIT:
+        return 0;
+    case PARSE_ARGUMENT_FAIL:
+        return 1;
+    case PARSE_ARGUMENT_DONE_AND_CONTINUE:
+        break;
+    }
+
+    std::vector<const FileDescriptor*> public_parsed_files;
+    std::unique_ptr<DiskSourceTree> disk_source_tree;
+    std::unique_ptr<ErrorPrinter> error_collector;
+    std::unique_ptr<DescriptorPool> descriptor_pool;
+
+    // The SimpleDescriptorDatabases here are the constituents of the
+    // MergedDescriptorDatabase descriptor_set_in_database, so this vector is for
+    // managing their lifetimes. Its scope should match descriptor_set_in_database
+    std::vector<std::unique_ptr<SimpleDescriptorDatabase>>
+        databases_per_descriptor_set;
+    std::unique_ptr<MergedDescriptorDatabase> descriptor_set_in_database;
+
+    std::unique_ptr<SourceTreeDescriptorDatabase> source_tree_database;
+
+    // Any --descriptor_set_in FileDescriptorSet objects will be used as a
+    // fallback to input_files on command line, so create that db first.
+    if (!descriptor_set_in_names_.empty()) {
+        for (const std::string& name : descriptor_set_in_names_) {
+            std::unique_ptr<SimpleDescriptorDatabase> database_for_descriptor_set =
+                PopulateSingleSimpleDescriptorDatabase(name);
+            if (!database_for_descriptor_set) {
+                return EXIT_FAILURE;
+            }
+            databases_per_descriptor_set.push_back(
+                std::move(database_for_descriptor_set));
+        }
+
+        std::vector<DescriptorDatabase*> raw_databases_per_descriptor_set;
+        raw_databases_per_descriptor_set.reserve(
+            databases_per_descriptor_set.size());
+        for (const std::unique_ptr<SimpleDescriptorDatabase>& db :
+            databases_per_descriptor_set) {
+            raw_databases_per_descriptor_set.push_back(db.get());
+        }
+        descriptor_set_in_database.reset(
+            new MergedDescriptorDatabase(raw_databases_per_descriptor_set));
+    }
+
+    if (proto_path_.empty()) {
+        // If there are no --proto_path flags, then just look in the specified
+        // --descriptor_set_in files.  But first, verify that the input files are
+        // there.
+        if (!VerifyInputFilesInDescriptors(descriptor_set_in_database.get())) {
+            return 1;
+        }
+
+        error_collector.reset(new ErrorPrinter(error_format_));
+        descriptor_pool.reset(new DescriptorPool(descriptor_set_in_database.get(),
+            error_collector.get()));
+    }
+    else {
+        disk_source_tree.reset(new DiskSourceTree());
+        if (!InitializeDiskSourceTree(disk_source_tree.get(),
+            descriptor_set_in_database.get())) {
+            return 1;
+        }
+
+        error_collector.reset(
+            new ErrorPrinter(error_format_, disk_source_tree.get()));
+
+        source_tree_database.reset(new SourceTreeDescriptorDatabase(
+            disk_source_tree.get(), descriptor_set_in_database.get()));
+        source_tree_database->RecordErrorsTo(error_collector.get());
+
+        descriptor_pool.reset(new DescriptorPool(
+            source_tree_database.get(),
+            source_tree_database->GetValidationErrorCollector()));
+    }
+
+    descriptor_pool->EnforceWeakDependencies(true);
+    if (!ParseInputFiles(descriptor_pool.get(), disk_source_tree.get(),
+        &public_parsed_files)) {
+        return 1;
+    }
+
+    for (size_t i = 0; i < public_parsed_files.size(); i++)
+    {
+        const FileDescriptor* parse_file = public_parsed_files[i];
+        for (size_t j = 0; j < parse_file->message_type_count(); j++)
+        {
+            const Descriptor* message_descriptor = parse_file->message_type(j);
+
+            MessageInfo message_info;
+            for (size_t k = 0; k < message_descriptor->field_count(); k++)
+            {
+                const FieldDescriptor* field_descriptor = message_descriptor->field(k);
+                //auto* oneof_decl = message_descriptor->oneof_decl(k);
+                FieldInfo message_info_field;
+
+                switch (field_descriptor->label())
+                {
+                case 1:
+                    message_info_field.field_label = "OPTIONAL"; break;
+                case 2:
+                    message_info_field.field_label = "REQUIRED"; break;
+                default:
+                    message_info_field.field_label = "REPEATED"; break;
+                }
+
+                switch (field_descriptor->type())
+                {
+                case FieldDescriptor::Type::TYPE_DOUBLE:
+                    message_info_field.field_type = "TYPE_DOUBLE"; break;
+                case FieldDescriptor::Type::TYPE_FLOAT:
+                    message_info_field.field_type = "TYPE_FLOAT"; break;
+                case FieldDescriptor::Type::TYPE_INT64:
+                    message_info_field.field_type = "TYPE_INT64"; break;
+                case FieldDescriptor::Type::TYPE_UINT64:
+                    message_info_field.field_type = "TYPE_UINT64"; break;
+                case FieldDescriptor::Type::TYPE_INT32:
+                    message_info_field.field_type = "TYPE_INT32"; break;
+                case FieldDescriptor::Type::TYPE_FIXED64:
+                    message_info_field.field_type = "TYPE_FIXED64"; break;
+                case FieldDescriptor::Type::TYPE_FIXED32:
+                    message_info_field.field_type = "TYPE_FIXED32"; break;
+                case FieldDescriptor::Type::TYPE_BOOL:
+                    message_info_field.field_type = "TYPE_BOOL"; break;
+                case FieldDescriptor::Type::TYPE_STRING:
+                    message_info_field.field_type = "TYPE_STRING"; break;
+                case FieldDescriptor::Type::TYPE_GROUP:
+                    message_info_field.field_type = "TYPE_GROUP"; break;
+                case FieldDescriptor::Type::TYPE_MESSAGE:
+                    message_info_field.field_type = "TYPE_MESSAGE"; break;
+                case FieldDescriptor::Type::TYPE_BYTES:
+                    message_info_field.field_type = "TYPE_BYTES"; break;
+                case FieldDescriptor::Type::TYPE_UINT32:
+                    message_info_field.field_type = "TYPE_UINT32"; break;
+                case FieldDescriptor::Type::TYPE_ENUM:
+                    message_info_field.field_type = "TYPE_ENUM"; break;
+                case FieldDescriptor::Type::TYPE_SFIXED32:
+                    message_info_field.field_type = "TYPE_SFIXED32"; break;
+                case FieldDescriptor::Type::TYPE_SFIXED64:
+                    message_info_field.field_type = "TYPE_SFIXED64"; break;
+                case FieldDescriptor::Type::TYPE_SINT32:
+                    message_info_field.field_type = "TYPE_SINT32"; break;
+                case FieldDescriptor::Type::TYPE_SINT64:
+                    message_info_field.field_type = "TYPE_SINT64"; break;
+                default:
+                    message_info_field.field_type = "MAX_TYPE"; break;
+                }
+
+                if (message_info_field.is_message)
+                {
+                    message_info_field.field_type = field_descriptor->message_type()->name();
+                }
+
+                message_info_field.field_name = field_descriptor->name();
+
+                SourceLocation* out_location = new SourceLocation;
+                if (field_descriptor->GetSourceLocation(out_location)) {
+                    std::string comment_str = out_location->trailing_comments;
+#ifdef _WINDOWS
+                    size_t n_pos = comment_str.find_last_not_of("\n");
+                    if (n_pos != std::string::npos)
+                        comment_str.erase(n_pos + 1, comment_str.size() - n_pos);
+#endif // _WINDOWS
+                    message_info_field.field_comment = comment_str;
+                }
+                else {
+                    message_info_field.field_comment = "NULL";
+                }
+
+                message_info.push_back(message_info_field);
+            }
+
+            message_name_set_.insert(message_descriptor->name());
+            message_info_map_.insert(std::make_pair(message_descriptor->name(), message_info));
+        }
+    }
+
+    return 0;
+}
+
+bool CommandLineInterface::had_message_in_proto(
+    std::string message_name) {
+    return (message_name_set_.find(message_name) != message_name_set_.end());
+}
+
+void CommandLineInterface::get_all_message_name(
+    std::unordered_set<std::string> &message_name_set) {
+    message_name_set = message_name_set_;
+}
+
+bool CommandLineInterface::find_message_by_name(
+    std::string message_name, MessageInfo &message_info) {
+    if (message_name.empty() || !had_message_in_proto(message_name))
+    {
+        return false;
+    }
+
+    for (std::unordered_map<std::string, MessageInfo>::iterator iter = message_info_map_.begin();
+        iter != message_info_map_.end(); iter++)
+    {
+        if (message_name == iter->first)
+        {
+            message_info = iter->second;
+            return true;
+        }
+    }
+
+    return false;
+}
+
 bool CommandLineInterface::InitializeDiskSourceTree(
     DiskSourceTree* source_tree, DescriptorDatabase* fallback_database) {
   AddDefaultProtoPaths(&proto_path_);
@@ -1456,6 +1670,120 @@ CommandLineInterface::ParseArgumentStatus CommandLineInterface::ParseArguments(
   }
 
   return PARSE_ARGUMENT_DONE_AND_CONTINUE;
+}
+
+CommandLineInterface::ParseArgumentStatus CommandLineInterface::ParseArgumentsForOnlyParse(
+    int argc, std::string argv) {
+    char** argv_str = new char *[256];
+    int nCount = 0;
+    size_t pos = 0, offset = 0;
+    std::string temp;
+    while ((pos = argv.find_first_of(" ", offset)) != std::string::npos)
+    {
+        temp = argv.substr(offset, pos - offset);
+        if (temp.length() > 0)
+        {
+            argv_str[nCount] = new char[256];
+	        strcpy(argv_str[nCount], temp.c_str());
+	        nCount++;
+        }
+		offset = pos + 1;
+    }
+    temp = argv.substr(offset, argv.length() - offset);
+    if (temp.length() > 0)
+    {
+        argv_str[nCount] = new char[256];
+        strcpy(argv_str[nCount], temp.c_str());
+        nCount++;
+    }
+
+    executable_name_ = argv_str[0];
+
+    std::vector<std::string> arguments;
+    for (int i = 1; i < argc; ++i) {
+        if (argv_str[i][0] == '@') {
+            if (!ExpandArgumentFile(argv_str[i] + 1, &arguments)) {
+                std::cerr << "Failed to open argument file: " << (argv_str[i] + 1)
+                    << std::endl;
+                return PARSE_ARGUMENT_FAIL;
+            }
+            continue;
+        }
+        arguments.push_back(argv_str[i]);
+    }
+
+    // if no arguments are given, show help
+    if (arguments.empty()) {
+        PrintHelpText();
+        return PARSE_ARGUMENT_DONE_AND_EXIT;  // Exit without running compiler.
+    }
+
+    // Iterate through all arguments and parse them.
+    for (int i = 0; i < arguments.size(); ++i) {
+        std::string name, value;
+
+        if (ParseArgument(arguments[i].c_str(), &name, &value)) {
+            // Returned true => Use the next argument as the flag value.
+            if (i + 1 == arguments.size() || arguments[i + 1][0] == '-') {
+                std::cerr << "Missing value for flag: " << name << std::endl;
+                if (name == "--decode") {
+                    std::cerr << "To decode an unknown message, use --decode_raw."
+                        << std::endl;
+                }
+                return PARSE_ARGUMENT_FAIL;
+            }
+            else {
+                ++i;
+                value = arguments[i];
+            }
+        }
+
+        ParseArgumentStatus status = InterpretArgument(name, value);
+        if (status != PARSE_ARGUMENT_DONE_AND_CONTINUE) return status;
+    }
+
+    // Make sure each plugin option has a matching plugin output.
+    bool foundUnknownPluginOption = false;
+    for (std::map<std::string, std::string>::const_iterator i =
+        plugin_parameters_.begin();
+        i != plugin_parameters_.end(); ++i) {
+        if (plugins_.find(i->first) != plugins_.end()) {
+            continue;
+        }
+        bool foundImplicitPlugin = false;
+        for (std::vector<OutputDirective>::const_iterator j =
+            output_directives_.begin();
+            j != output_directives_.end(); ++j) {
+            if (j->generator == NULL) {
+                std::string plugin_name = PluginName(plugin_prefix_, j->name);
+                if (plugin_name == i->first) {
+                    foundImplicitPlugin = true;
+                    break;
+                }
+            }
+        }
+        if (!foundImplicitPlugin) {
+            std::cerr << "Unknown flag: "
+                // strip prefix + "gen-" and add back "_opt"
+                << "--" + i->first.substr(plugin_prefix_.size() + 4) + "_opt"
+                << std::endl;
+            foundUnknownPluginOption = true;
+        }
+    }
+    if (foundUnknownPluginOption) {
+        return PARSE_ARGUMENT_FAIL;
+    }
+
+    // The --proto_path & --descriptor_set_in flags both specify places to look
+    // for proto files. If neither were given, use the current working directory.
+    if (proto_path_.empty() && descriptor_set_in_names_.empty()) {
+        // Don't use make_pair as the old/default standard library on Solaris
+        // doesn't support it without explicit template parameters, which are
+        // incompatible with C++0x's make_pair.
+        proto_path_.push_back(std::pair<std::string, std::string>("", "."));
+    }
+
+    return PARSE_ARGUMENT_DONE_AND_CONTINUE;
 }
 
 bool CommandLineInterface::ParseArgument(const char* arg, std::string* name,
